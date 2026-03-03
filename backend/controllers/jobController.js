@@ -40,5 +40,25 @@ exports.getSingleJob = async (req, res) => {
   }
 };
 
+exports.createJob = async (req, res) => {
+  try {
+    const { title, company, location, category, description } = req.body;
 
+    if (!title || !company || !location || !category || !description) {
+      return res.status(400).json({ success: false, message: "All fields required" });
+    }
+
+    const job = await Job.create({
+      title,
+      company,
+      location,
+      category,
+      description
+    });
+
+    res.status(201).json({ success: true, data: job });
+  } catch {
+    res.status(500).json({ success: false, message: "Server Error" });
+  }
+};
 
