@@ -62,3 +62,16 @@ exports.createJob = async (req, res) => {
   }
 };
 
+exports.deleteJob = async (req, res) => {
+  try {
+    const job = await Job.findByIdAndDelete(req.params.id);
+
+    if (!job) {
+      return res.status(404).json({ success: false, message: "Job not found" });
+    }
+
+    res.json({ success: true, message: "Job deleted" });
+  } catch {
+    res.status(400).json({ success: false, message: "Invalid ID" });
+  }
+};
