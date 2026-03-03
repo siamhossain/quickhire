@@ -16,6 +16,7 @@ app.use(express.json());
 app.use("/api/jobs", jobRoutes);
 app.use("/api/applications", applicationRoutes);
 
+
 app.listen(5000, () => {
   console.log("Server running on port 5000");
 });
