@@ -8,7 +8,6 @@ export default function AdminForm() {
     title: "",
     company: "",
     location: "",
-    type: "",
     category: "",
     description: "",
   });
