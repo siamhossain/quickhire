@@ -15,7 +15,8 @@ export async function getJobs(filters: JobFilter = {}) {
     if (filters?.category) params.append("category", filters.category);  
 
     const res = await fetch(
-        `${API_URL}/jobs${params.toString() ? `?${params.toString()}` : ""}`,
+        // `${API_URL}/jobs${params.toString() ? `?${params.toString()}` : ""}`,
+        `${API_URL}/jobs?${params.toString()}`,
         { cache: "no-store" }
     );
 
@@ -62,6 +63,6 @@ export async function applyToJob(data: any) {
   if (!res.ok) throw new Error("Failed to apply");
   
   const result = await res.json();
-  
+
   return result.data;
 }
