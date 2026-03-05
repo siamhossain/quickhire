@@ -75,3 +75,33 @@ exports.deleteJob = async (req, res) => {
     res.status(400).json({ success: false, message: "Invalid ID" });
   }
 };
+
+exports.updateJob = async (req, res) => {
+  try {
+    const { title, company, location, category, description } = req.body;
+
+    const job = await Job.findByIdAndUpdate(
+      req.params.id,
+      { title, company, location, category, description },
+      { new: true, runValidators: true }
+    );
+
+    if (!job) {
+      return res.status(404).json({
+        success: false,
+        message: "Job not found",
+      });
+    }
+
+    res.json({
+      success: true,
+      data: job,
+    });
+
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Server Error",
+    });
+  }
+};

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { getJobs, deleteJob } from "@/lib/api";
+import Link from "next/link";
 
 type Job = {
   _id: string;
@@ -64,12 +65,20 @@ export default function AdminJobList() {
               </p>
             </div>
 
-            <button
-              onClick={() => handleDelete(job._id)}
-              className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
-            >
-              Delete
-            </button>
+            <div className="flex gap-3">
+                <Link href={`/jobs/${job._id}`} className="bg-green-500 text-white px-4 py-2 rounded cursor-pointer">
+                    View
+                </Link> 
+
+                <Link href={`/admin/edit/${job._id}`} className="bg-blue-500 text-white px-4 py-2 rounded cursor-pointer">
+                    Edit
+                </Link>
+
+                <button onClick={() => handleDelete(job._id)} className="bg-red-500 text-white px-4 py-2 rounded cursor-pointer">
+                    Delete
+                </button>
+
+            </div>
           </div>
         ))}
       </div>

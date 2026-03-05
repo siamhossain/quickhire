@@ -78,3 +78,19 @@ export async function deleteJob(id: string) {
 
   return result;
 }
+
+export async function updateJob(id: string, data: any) {
+  const res = await fetch(`${API_URL}/jobs/${id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  });
+
+  if (!res.ok) throw new Error("Failed to update job");
+
+  const result = await res.json();
+
+  return result.data;
+}

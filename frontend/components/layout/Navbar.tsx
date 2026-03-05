@@ -11,7 +11,7 @@ export default function Navbar() {
 
             <div className="space-x-6">
                 <Link href="/jobs">Find Jobs</Link>
-                <Link href="/admin">Browse Companies</Link>
+                <Link href="/admin">Admin Panel</Link>
             </div>
         </div>
         
