@@ -1,7 +1,12 @@
 "use client";
 
 import { useRouter, useSearchParams } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
+type Job = {
+  _id: string;
+  category: string;
+};
 
 export default function JobFilter() {
   const router = useRouter();
@@ -10,6 +15,30 @@ export default function JobFilter() {
   const [search, setSearch] = useState(searchParams.get("search") || "");
   const [category, setCategory] = useState(searchParams.get("category") || "");
   const [location, setLocation] = useState(searchParams.get("location") || "");
+
+  const [categories, setCategories] = useState<string[]>([]);
+
+  // Fetch categories dynamically
+  useEffect(() => {
+    async function fetchCategories() {
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/jobs`,
+        { cache: "no-store" }
+      );
+
+      const result = await res.json();
+
+      const jobs: Job[] = result.data;
+
+      const uniqueCategories = [
+        ...new Set(jobs.map((job) => job.category)),
+      ];
+
+      setCategories(uniqueCategories);
+    }
+
+    fetchCategories();
+  }, []);
 
   const handleFilter = () => {
     const params = new URLSearchParams();
@@ -40,17 +69,19 @@ export default function JobFilter() {
         onChange={(e) => setSearch(e.target.value)}
       />
 
-      {/* Category */}
+      {/* Dynamic Category */}
       <select
         className="border p-2 rounded"
         value={category}
         onChange={(e) => setCategory(e.target.value)}
       >
         <option value="">All Categories</option>
-        <option value="Frontend">Frontend</option>
-        <option value="Backend">Backend</option>
-        <option value="Fullstack">Fullstack</option>
-        <option value="UI/UX">UI/UX</option>
+
+        {categories.map((cat) => (
+          <option key={cat} value={cat}>
+            {cat}
+          </option>
+        ))}
       </select>
 
       {/* Location */}

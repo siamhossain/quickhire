@@ -11,20 +11,14 @@ export default function ApplyForm({ jobId }: { jobId: string }) {
     cover_note: "",
   });
 
-//   const [loading, setLoading] = useState(false);
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // setLoading(true);
     try {
         await applyToJob({ ...form, job_id: jobId });
         alert("Application submitted");
     } catch (error) {
         alert("Something went wrong");
-    } 
-    // finally {
-    //     setLoading(false);
-    // }
+    }
   };
 
   return (
@@ -61,12 +55,8 @@ export default function ApplyForm({ jobId }: { jobId: string }) {
         }
       />
 
-      {/* <button  className="bg-black text-white px-6 py-2 rounded disabled:opacity-50" disabled={loading}>
-        {loading ? "Submiting..." : "Apply Now"}
-      </button> */}
-
-      <button  className="bg-black text-white px-6 py-2 rounded">
-        Apply Now"
+      <button  className="bg-black text-white px-6 py-2 rounded cursor-pointer">
+        Apply Now
       </button>
 
     </form>
