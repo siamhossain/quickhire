@@ -2,43 +2,47 @@ import JobCard from "@/components/jobs/JobCard";
 import JobFilter from "@/components/jobs/JobFilter";
 import { getJobs } from "@/lib/api";
 
+type SearchParams = {
+  search?: string;
+  location?: string;
+  category?: string;
+};
+
 type Props = {
-  searchParams: {
-    search?: string;
-    location?: string;
-    category?: string;
-  };
+  searchParams: Promise<SearchParams>;
 };
 
 export default async function JobsPage({ searchParams }: Props) {
 
-  const jobs = await getJobs({
-    search: searchParams.search,
-    location: searchParams.location,
-    category: searchParams.category,    
-  });
+    const params = await searchParams;
 
-  return (
-    <div className="max-w-6xl mx-auto p-10">
+    const jobs = await getJobs({
+        search: params.search,
+        location: params.location,
+        category: params.category,    
+    });
 
-      <h1 className="text-3xl font-bold mb-8">
-        Available Jobs
-      </h1>
+    return (
+        <div className="max-w-6xl mx-auto p-10">
 
-      <JobFilter />
+            <h1 className="text-3xl font-bold mb-8">
+                Available Jobs
+            </h1>
 
-      <div className="grid md:grid-cols-3 gap-6">
-        {jobs.map((job: any) => (
-          <JobCard key={job._id} job={job} />
-        ))}
-      </div>
+            <JobFilter />
 
-      {jobs.length === 0 && (
-        <p className="text-center text-gray-500 mt-10">
-          No jobs found.
-        </p>
-      )}
+            <div className="grid md:grid-cols-3 gap-6">
+                {jobs.map((job: any) => (
+                <JobCard key={job._id} job={job} />
+                ))}
+            </div>
 
-    </div>
-  );
+            {jobs.length === 0 && (
+                <p className="text-center text-gray-500 mt-10">
+                No jobs found.
+                </p>
+            )}
+
+        </div>
+    );
 }
