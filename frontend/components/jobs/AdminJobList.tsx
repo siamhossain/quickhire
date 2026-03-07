@@ -59,7 +59,7 @@ export default function AdminJobList() {
             className="border p-4 rounded flex justify-between items-center"
           >
             <div>
-              <h3 className="font-semibold">{job.title}</h3>
+              <h3 className="font-semibold"><Link href={`/jobs/${job._id}`}>{job.title}</Link></h3>
               <p className="text-sm text-gray-500">
                 {job.company} • {job.location}
               </p>
