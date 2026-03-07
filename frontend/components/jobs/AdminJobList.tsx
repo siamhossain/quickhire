@@ -1,36 +1,16 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { getJobs, deleteJob } from "@/lib/api";
+import { deleteJob } from "@/lib/api";
 import Link from "next/link";
+import { Job } from "@/types/job";
 
-type Job = {
-  _id: string;
-  title: string;
-  company: string;
-  location: string;
-  category: string;
+type Props = {
+  jobs: Job[];
+  setJobs: React.Dispatch<React.SetStateAction<Job[]>>;
 };
 
-export default function AdminJobList() {
-  const [jobs, setJobs] = useState<Job[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  async function loadJobs() {
-    try {
-      const data = await getJobs();
-      setJobs(data);
-    } catch (error) {
-      console.error("Failed to load jobs");
-    } finally {
-      setLoading(false);
-    }
-  }
-
-  useEffect(() => {
-    loadJobs();
-  }, []);
-
+export default function AdminJobList({ jobs, setJobs }: Props) {
+  
   const handleDelete = async (id: string) => {
     const confirmDelete = confirm("Are you sure you want to delete this job?");
 
@@ -46,7 +26,7 @@ export default function AdminJobList() {
     }
   };
 
-  if (loading) return <p>Loading jobs...</p>;
+  
 
   return (
     <div className="mt-10">

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { createJob } from "@/lib/api";
 
-export default function AdminForm() {
+export default function AdminForm({refreshJobs}: any) {
   const [form, setForm] = useState({
     title: "",
     company: "",
@@ -16,6 +16,7 @@ export default function AdminForm() {
     e.preventDefault();
     await createJob(form);
     alert("Job created successfully");
+    refreshJobs(); 
   };
 
   return (
@@ -32,7 +33,7 @@ export default function AdminForm() {
         />
       ))}
 
-      <button className="bg-black text-white px-6 py-2 rounded">
+      <button className="bg-black text-white px-6 py-2 rounded cursor-pointer">
         Create Job
       </button>
     </form>
