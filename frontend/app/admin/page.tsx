@@ -6,15 +6,6 @@ import AdminJobList from "@/components/jobs/AdminJobList";
 import { getJobs } from "@/lib/api";
 import { Job } from "@/types/job";
 
-
-// type Job = {
-//   _id: string;
-//   title: string;
-//   company: string;
-//   location: string;
-//   category: string;
-// };
-
 export default function AdminPage() {
 
   const [jobs, setJobs] = useState<Job[]>([]);

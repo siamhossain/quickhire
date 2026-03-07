@@ -1,0 +1,35 @@
+@layer components {
+
+  .heading-1 {
+    @apply font-clash text-7xl font-semibold text-gray-900 ;
+  }
+
+  .heading-2 {
+    @apply font-clash text-2xl font-semibold text-gray-900;
+  }
+
+  .heading-3 {
+    @apply font-clash text-xl font-semibold text-gray-800;
+  }
+
+  .heading-4 {
+    @apply font-clash text-lg font-semibold text-gray-800;
+  }
+
+  .heading-5 {
+    @apply font-clash text-sm font-semibold text-gray-800;
+  }
+  
+  .heading-6 {
+    @apply font-clash text-xs font-semibold text-gray-800;
+  }
+
+  .body-text {
+    @apply font-epilogue text-base text-gray-600;
+  }
+
+  .small-text {
+    @apply font-epilogue text-sm text-gray-500;
+  }
+
+}
