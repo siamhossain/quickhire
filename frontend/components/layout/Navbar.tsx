@@ -1,10 +1,35 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { useState, useEffect } from "react";
+
+
 
 export default function Navbar() {
+
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 78) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <nav className="border-b">
-      <div className="max-w-6xl mx-auto p-4 flex justify-between">
+    <nav
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+        scrolled ? "bg-white shadow-md" : "bg-transparent"
+      }`}
+    >
+      <div className="container-main h-[78px] flex items-center justify-between">
         <div className="flex items-center">
             <Link href="/" className="font-bold text-xl pr-10">
                 <Image src="/logo.svg" 
@@ -16,18 +41,16 @@ export default function Navbar() {
             </Link>
 
             <div className="space-x-4">
-                <Link href="/jobs">Find Jobs</Link>
-                <Link href="/admin">Admin Panel</Link>
+                <Link href="/jobs" className="nav-link">Find Jobs</Link>
+                <Link href="/admin" className="nav-link">Admin Panel</Link>
             </div>
         </div>
-        
-        <h1 className="heading-2 bg-primary text-secondary font-heading">Test</h1>
 
         <div className="flex items-center">
-          <Link href="/login" className="text-sm font-medium">
+          <Link href="/login" className="font-epilogue font-bold text-[16px] leading[160%] text-primary px-4 py-2 rounded-none w-[92px] h-[50px] flex items-center justify-center">
             Login
           </Link>
-          <Link href="/signup" className="ml-4 text-sm font-medium bg-primary text-white px-4 py-2 rounded width-108 height-50">
+          <Link href="/signup" className="font-epilogue font-bold text-[16px] leading[160%] ml-4  bg-primary text-white px-4 py-2 rounded-none w-[108px] h-[50px] flex items-center justify-center">
             Sign Up
           </Link>
         </div>

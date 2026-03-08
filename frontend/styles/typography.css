@@ -1,35 +1,43 @@
 @layer components {
 
-  .heading-1 {
-    @apply font-clash text-7xl font-semibold text-gray-900 ;
+  /* Headings */
+
+  .heading-xl {
+    @apply font-clash text-7xl font-semibold text-heading;
   }
 
-  .heading-2 {
-    @apply font-clash text-2xl font-semibold text-gray-900;
+  .heading-lg {
+    @apply font-clash text-3xl font-semibold text-heading;
   }
 
-  .heading-3 {
-    @apply font-clash text-xl font-semibold text-gray-800;
+  .heading-md {
+    @apply font-clash text-2xl font-semibold text-heading;
   }
 
-  .heading-4 {
-    @apply font-clash text-lg font-semibold text-gray-800;
+  .heading-sm {
+    @apply font-clash text-lg font-semibold text-heading;
   }
 
-  .heading-5 {
-    @apply font-clash text-sm font-semibold text-gray-800;
-  }
-  
-  .heading-6 {
-    @apply font-clash text-xs font-semibold text-gray-800;
+  /* Body text */
+
+  .text-body {
+    @apply font-epilogue text-base text-text;
   }
 
-  .body-text {
-    @apply font-epilogue text-base text-gray-600;
-  }
-
-  .small-text {
+  .text-small {
     @apply font-epilogue text-sm text-gray-500;
+  }
+
+  /* Navigation */
+
+  .nav-link {
+    @apply font-epilogue text-base font-medium text-nav transition-colors hover:text-primary;
+  }
+
+  /* Container */
+
+  .container-main {
+    @apply max-w-[1192px] mx-auto;
   }
 
 }

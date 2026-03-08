@@ -21,9 +21,12 @@
 
 @theme {
   --color-primary: #4640DE;
-  --color-secondary: #1E293B;
+  --color-secondary: #26A4FF;
   --color-border: #E5E7EB;
-  --color-text: #171717;
+  --color-text: #7C8493;
+  --color-nav: #515B6F;
+
+  --color-heading: #25324B;
   
   --font-epilogue: var(--font-epilogue);
   --font-clash: "ClashDisplay", sans-serif;
