@@ -105,3 +105,36 @@ exports.updateJob = async (req, res) => {
     });
   }
 };
+
+exports.getFeaturedJobs = async (req, res) => {
+  try {
+    const jobs = await Job.find({ featured: true })
+    .sort({ createdAt: -1 })
+    .limit(8);
+    
+    res.json({
+      success: true,
+      data: jobs,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Server Error",
+    });
+  }
+};
+
+exports.getLatestJobs = async (req, res) => {
+  try {
+    const jobs = await Job.find()
+      .sort({ createdAt: -1 })
+      .limit(8);
+
+    res.json({
+      success: true,
+      data: jobs,
+    });
+  } catch {
+    res.status(500).json({ success: false, message: "Server Error" });
+  }
+};
