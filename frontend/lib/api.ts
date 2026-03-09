@@ -94,3 +94,25 @@ export async function updateJob(id: string, data: any) {
 
   return result.data;
 }
+
+export async function getFeaturedJobs() {
+  const res = await fetch(`${API_URL}/jobs/featured`, {
+    cache: "no-store",
+  });
+
+  if (!res.ok) throw new Error("Failed to fetch featured jobs");
+
+  const result = await res.json();
+  return result.data;
+}
+
+export async function getLatestJobs() {
+  const res = await fetch(`${API_URL}/jobs/latest`, {
+    cache: "no-store",
+  });
+
+  if (!res.ok) throw new Error("Failed to fetch latest jobs");
+
+  const result = await res.json();
+  return result.data;
+}

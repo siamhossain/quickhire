@@ -6,5 +6,6 @@ export type Job = {
   type: string;
   category: string;
   description: string;
+  featured?: boolean;
   createdAt?: string;
 };
