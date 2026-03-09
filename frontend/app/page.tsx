@@ -1,5 +1,6 @@
-import Brands from "@/components/home/Brands";
-import Hero from "@/components/home/Hero";
+import Brands from "@/components/home/BrandSection";
+import CategorySection from "@/components/home/Categories/CategorySection";
+import Hero from "@/components/home/HeroSection";
 import Image from "next/image";
 
 export default function Home() {
@@ -7,6 +8,7 @@ export default function Home() {
     <div className="">
       <Hero />
       <Brands />
+      <CategorySection />
     </div>
   );
 }

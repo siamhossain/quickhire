@@ -11,14 +11,14 @@ export default function Brands() {
 
   return (
     <section className="brand-section py-12 bg-white">
-      <div className="max-w-[1192px] mx-auto px-4">
+      <div className="container-main">
         <p className="text-[18px] font-regular leading-[160%] mb-[30px] text-[#202430] opacity-50">
           Companies we helped grow
         </p>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 items-center">
+        <div className="flex flex-wrap items-center justify-between gap-8">
           {brands.map((brand, index) => (
-            <div key={index} className="flex justify-center">
+            <div key={index} className="">
               <Image
                 src={brand.logo}
                 alt={brand.name}

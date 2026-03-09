@@ -7,7 +7,7 @@
   }
 
   .heading-lg {
-    @apply font-clash text-3xl font-semibold text-heading;
+    @apply font-clash text-5xl font-semibold text-heading;
   }
 
   .heading-md {
