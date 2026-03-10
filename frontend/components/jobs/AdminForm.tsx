@@ -18,6 +18,15 @@ export default function AdminForm({ refreshJobs }: any) {
     await createJob(form);
     alert("Job created successfully");
     refreshJobs();
+    // Reset form fields
+    setForm({
+      title: "",
+      company: "",
+      location: "",
+      category: "",
+      description: "",
+      featured: false,
+    });
   };
 
   return (
@@ -30,6 +39,7 @@ export default function AdminForm({ refreshJobs }: any) {
             type="text"
             placeholder={key}
             className="w-full border p-2"
+            value={(form as any)[key]}
             onChange={(e) => setForm({ ...form, [key]: e.target.value })}
           />
         ))}

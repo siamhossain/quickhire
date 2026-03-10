@@ -42,7 +42,7 @@ exports.getSingleJob = async (req, res) => {
 
 exports.createJob = async (req, res) => {
   try {
-    const { title, company, location, category, description } = req.body;
+    const { title, company, location, category, description, featured } = req.body;
 
     if (!title || !company || !location || !category || !description) {
       return res.status(400).json({ success: false, message: "All fields required" });
@@ -53,7 +53,8 @@ exports.createJob = async (req, res) => {
       company,
       location,
       category,
-      description
+      description,
+      featured
     });
 
     res.status(201).json({ success: true, data: job });
@@ -78,11 +79,11 @@ exports.deleteJob = async (req, res) => {
 
 exports.updateJob = async (req, res) => {
   try {
-    const { title, company, location, category, description } = req.body;
+    const { title, company, location, category, description, featured } = req.body;
 
     const job = await Job.findByIdAndUpdate(
       req.params.id,
-      { title, company, location, category, description },
+      { title, company, location, category, description, featured },
       { new: true, runValidators: true }
     );
 
