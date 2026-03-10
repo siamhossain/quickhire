@@ -5,7 +5,6 @@ import { getJobById, updateJob } from "@/lib/api";
 import { useParams, useRouter } from "next/navigation";
 
 export default function EditJobPage() {
-
   const { id } = useParams();
   const router = useRouter();
 
@@ -15,6 +14,7 @@ export default function EditJobPage() {
     location: "",
     category: "",
     description: "",
+    featured: false,
   });
 
   useEffect(() => {
@@ -36,25 +36,27 @@ export default function EditJobPage() {
     router.push("/admin");
   };
 
+  // const handleChange = (e: any) => {
+  //   setForm({
+  //     ...form,
+  //     [e.target.name]: e.target.value,
+  //   });
+  // };
+
   const handleChange = (e: any) => {
+    const { name, value, type, checked } = e.target;
+
     setForm({
       ...form,
-      [e.target.name]: e.target.value,
+      [name]: type === "checkbox" ? checked : value,
     });
   };
 
   return (
-    <div className="max-w-3xl mx-auto py-10">
+    <div className="max-w-3xl mx-auto py-10 pt-[110px]">
+      <h1 className="text-3xl font-bold mb-6">Edit Job</h1>
 
-      <h1 className="text-3xl font-bold mb-6">
-        Edit Job
-      </h1>
-
-      <form
-        onSubmit={handleSubmit}
-        className="space-y-4"
-      >
-
+      <form onSubmit={handleSubmit} className="space-y-4">
         <input
           name="title"
           value={form.title}
@@ -95,12 +97,20 @@ export default function EditJobPage() {
           className="border p-2 w-full"
         />
 
-        <button
-          className="bg-black text-white px-6 py-2 rounded cursor-pointer"
-        >
+        {/* Featured Checkbox */}
+        <label className="flex items-center gap-2">
+          <input
+            type="checkbox"
+            name="featured"
+            checked={form.featured}
+            onChange={handleChange}
+          />
+          Featured Job
+        </label>
+
+        <button className="bg-black text-white px-6 py-2 rounded cursor-pointer">
           Update Job
         </button>
-
       </form>
     </div>
   );

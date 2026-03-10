@@ -1,16 +1,16 @@
 import Heading from "@/components/home/Heading";
-import CategoryCards from "@/components/home/Categories/CategoryCard";
+import FeaturedJobCards from "@/components/home/Featured/FeaturedJobCards";
 
-export default function CategorySection() {
+export default function FeaturedSection() {
   return (
     <section className="category-section pt-[70px] pb-[70px]">
       <div className="container-main">
         <Heading
-          title="Explore by"
-          coloredTitle=" category"
+          title="Featured"
+          coloredTitle=" Jobs"
           buttonText="Show All Jobs"
         />
-        <CategoryCards />
+        <FeaturedJobCards />
       </div>
     </section>
   );

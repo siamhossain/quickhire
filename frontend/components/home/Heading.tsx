@@ -1,20 +1,17 @@
-"use client";
-
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 interface HeadingProps {
   title: string;
   coloredTitle: string;
   buttonText: string;
-  onClick?: () => void;
 }
 
 const Heading: React.FC<HeadingProps> = ({
   title,
   coloredTitle,
   buttonText,
-  onClick,
 }) => {
   return (
     <div className="flex justify-between items-baseline w-full mb-[40px]">
@@ -24,9 +21,9 @@ const Heading: React.FC<HeadingProps> = ({
       </h2>
 
       {/* Button */}
-      <button
-        onClick={onClick}
-        className="flex items-center gap-3 text-base text-primary font-semibold leading-[160%] px-4 py-2 hover:border-b border-primary rounded-none"
+      <Link
+        href="/jobs"
+        className="flex items-center gap-3 text-base text-primary font-semibold leading-[160%] py-2 cursor-pointer hover:text-black rounded-none transition-colors duration-300"
       >
         {buttonText}
 
@@ -36,7 +33,7 @@ const Heading: React.FC<HeadingProps> = ({
           width={24}
           height={24}
         />
-      </button>
+      </Link>
     </div>
   );
 };
