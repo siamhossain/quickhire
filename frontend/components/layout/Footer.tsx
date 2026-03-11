@@ -1,12 +1,18 @@
 import Image from "next/image";
 import Link from "next/link";
+import {
+  FaFacebookF,
+  FaTwitter,
+  FaInstagram,
+  FaLinkedinIn,
+} from "react-icons/fa";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#202430] text-gray-300 mt-20">
-      <div className="max-w-7xl mx-auto px-6 py-16">
+    <footer className="bg-[#202430] text-gray-300">
+      <div className="container-main px-6 py-16">
         {/* Top Footer */}
-        <div className="grid md:grid-cols-4 gap-10">
+        <div className="grid md:grid-cols-[2fr_1fr_1fr_2fr] gap-10">
           <div>
             <div className="flex items-center gap-2 mb-4">
               <Image
@@ -17,7 +23,7 @@ export default function Footer() {
               />
             </div>
 
-            <p className="text-sm text-gray-400 leading-relaxed">
+            <p className="text-body text-[#D6DDEB]">
               Great platform for the job seeker that passionate about startups.
               Find your dream job easier.
             </p>
@@ -25,61 +31,81 @@ export default function Footer() {
 
           {/* About */}
           <div>
-            <h3 className="text-white font-semibold mb-4">About</h3>
+            <h3 className="text-white font-semibold text-[18px] mb-4">About</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="#">Companies</Link>
+                <Link href="#" className="text-body text-[#D6DDEB]">
+                  Companies
+                </Link>
               </li>
               <li>
-                <Link href="#">Pricing</Link>
+                <Link href="#" className="text-body text-[#D6DDEB]">
+                  Pricing
+                </Link>
               </li>
               <li>
-                <Link href="#">Terms</Link>
+                <Link href="#" className="text-body text-[#D6DDEB]">
+                  Terms
+                </Link>
               </li>
               <li>
-                <Link href="#">Advice</Link>
+                <Link href="#" className="text-body text-[#D6DDEB]">
+                  Advice
+                </Link>
               </li>
               <li>
-                <Link href="#">Privacy Policy</Link>
+                <Link href="#" className="text-body text-[#D6DDEB]">
+                  Privacy Policy
+                </Link>
               </li>
             </ul>
           </div>
 
           {/* Resources */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Resources</h3>
+            <h3 className="text-white font-semibold text-[18px] mb-4">
+              Resources
+            </h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="#">Help Docs</Link>
+                <Link href="#" className="text-body text-[#D6DDEB]">
+                  Help Docs
+                </Link>
               </li>
               <li>
-                <Link href="#">Guide</Link>
+                <Link href="#" className="text-body text-[#D6DDEB]">
+                  Guide
+                </Link>
               </li>
               <li>
-                <Link href="#">Updates</Link>
+                <Link href="#" className="text-body text-[#D6DDEB]">
+                  Updates
+                </Link>
               </li>
               <li>
-                <Link href="#">Contact Us</Link>
+                <Link href="#" className="text-body text-[#D6DDEB]">
+                  Contact Us
+                </Link>
               </li>
             </ul>
           </div>
 
           {/* Newsletter */}
           <div>
-            <h3 className="text-white font-semibold mb-4">
+            <h3 className="text-white font-semibold text-[18px] mb-4">
               Get job notifications
             </h3>
-            <p className="text-sm text-gray-400 mb-4">
+            <p className="text-body text-[#D6DDEB] mb-4">
               The latest job news, articles, sent to your inbox weekly.
             </p>
 
-            <div className="flex">
+            <div className="flex gap-[8px]">
               <input
                 type="email"
                 placeholder="Email Address"
-                className="px-3 py-2 w-full text-sm bg-gray-200 text-black outline-none"
+                className="px-3 py-2 w-full text-base bg-white text-[#A8ADB7] outline-none"
               />
-              <button className="bg-indigo-500 px-4 py-2 text-sm text-white">
+              <button className="bg-primary h-[50px] px-4 py-2 text-sm text-white">
                 Subscribe
               </button>
             </div>
@@ -89,16 +115,35 @@ export default function Footer() {
         {/* Divider */}
         <div className="border-t border-gray-700 mt-12 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-gray-400">
-            © {new Date().getFullYear()} QuickHire. All rights reserved.
+            {new Date().getFullYear()} © QuickHire. All rights reserved.
           </p>
 
           {/* Social Icons */}
           <div className="flex gap-4 text-gray-400">
-            <Link href="#">FB</Link>
-            <Link href="#">IG</Link>
-            <Link href="#">Dr</Link>
-            <Link href="#">IN</Link>
-            <Link href="#">TW</Link>
+            <Link
+              href="#"
+              className="text-white bg-white/10 w-[32] h-[32px] flex items-center justify-center rounded-full hover:bg-white hover:text-primary transition-colors duration-300"
+            >
+              <FaFacebookF />
+            </Link>
+            <Link
+              href="#"
+              className="text-white bg-white/10 w-[32] h-[32px] flex items-center justify-center rounded-full hover:bg-white hover:text-primary transition-colors duration-300"
+            >
+              <FaInstagram />
+            </Link>
+            <Link
+              href="#"
+              className="text-white bg-white/10 w-[32] h-[32px] flex items-center justify-center rounded-full hover:bg-white hover:text-primary transition-colors duration-300"
+            >
+              <FaTwitter />
+            </Link>
+            <Link
+              href="#"
+              className="text-white bg-white/10 w-[32] h-[32px] flex items-center justify-center rounded-full hover:bg-white hover:text-primary transition-colors duration-300"
+            >
+              <FaLinkedinIn />
+            </Link>
           </div>
         </div>
       </div>
