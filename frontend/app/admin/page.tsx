@@ -27,9 +27,12 @@ export default function AdminPage() {
 
   if (loading) {
     return (
-      <div className="max-w-5xl mx-auto py-10">
-        <h1 className="text-3xl font-bold mb-8">Admin Panel</h1>
-        <p>Loading jobs...</p>
+      <div className="min-h-screen flex flex-col items-center justify-center gap-6">
+        {/* Spinner */}
+        <div className="w-12 h-12 border-4 border-gray-200 border-t-primary rounded-full animate-spin"></div>
+
+        {/* Loading text */}
+        <p className="text-primary text-lg font-semibold">Loading jobs...</p>
       </div>
     );
   }
