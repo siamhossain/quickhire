@@ -58,8 +58,8 @@ export default function JobFilter() {
   };
 
   return (
-    <div className="bg-white w-[852px] h-[90px] p-[16px] mt-[16px] rounded-none shadow-(--filter-shadow) flex items-center justify-between gap-[16px]">
-      <div className="relative">
+    <div className="bg-white  lg:w-[852px] lg:h-[90px] p-[16px] mt-[16px] rounded-none shadow-(--filter-shadow) flex flex-col md:flex-row items-stretch md:items-center justify-between gap-[16px]">
+      <div className="relative w-full md:w-auto">
         <div className="absolute left-0 flex items-center pointer-events-none p-[16px]">
           {/* Search Icon */}
           <Image
@@ -70,11 +70,12 @@ export default function JobFilter() {
             className="pointer-events-none"
           />
         </div>
+
         {/* Search input*/}
         <input
           type="text"
           placeholder="Job title or keyword"
-          className="border-b-1 border-[#D6DDEB] ml-[56px] p-4 pl-0"
+          className="border-b-1 border-[#D6DDEB] ml-[56px] p-4 pl-0 md:w-auto"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
@@ -95,7 +96,7 @@ export default function JobFilter() {
         ))}
       </select> */}
 
-      <div className="relative">
+      <div className="relative w-full md:w-auto">
         <div className="absolute left-0 flex items-center pointer-events-none p-[16px]">
           <Image
             src="/location-icon.svg"
@@ -105,21 +106,22 @@ export default function JobFilter() {
             className="pointer-events-none"
           />
         </div>
+
         {/* Location */}
         <input
           type="text"
           placeholder="Location"
-          className="border-b-1 border-[#D6DDEB] ml-[56px] p-4 pl-0"
+          className="border-b-1 border-[#D6DDEB] ml-[56px] p-4 pl-0 md:w-auto"
           value={location}
           onChange={(e) => setLocation(e.target.value)}
         />
       </div>
 
       {/* Buttons */}
-      <div className="flex gap-2">
+      <div className="flex gap-2 w-full md:w-auto">
         <button
           onClick={handleFilter}
-          className="bg-primary rounded-none text-white px-4 py-2 text-[18px] font-bold leading-[160%]"
+          className="bg-primary rounded-none text-white px-4 py-2 text-[18px] font-bold leading-[160%] w-full md:w-auto"
         >
           Search my job
         </button>

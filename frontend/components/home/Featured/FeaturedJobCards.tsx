@@ -17,7 +17,7 @@ export default async function FeaturedJobCard() {
 
   return (
     <div className="featured-jobs">
-      <div className="grid grid-cols-4 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
         {jobs.map((job: any) => (
           <div
             key={job._id}
@@ -44,7 +44,7 @@ export default async function FeaturedJobCard() {
             <h3 className="font-epilogue font-semibold leading-[160%] text-color-heading text-lg mb-1">
               {job.title}
             </h3>
-            <div className="company-info flex gap-[20px] items-center">
+            <div className="company-info flex flex-wrap gap-x-[20px] gap-y-[10px] items-center">
               <p className="text-body leading-[160%] text-[#515B6F] relative before:absolute before:content-[''] before:w-[4px] before:h-[4px] before:bg-gray-500 before:rounded-full before:right-[-11px] before:top-[10px]">
                 {job.company}
               </p>
@@ -58,7 +58,7 @@ export default async function FeaturedJobCard() {
               </p>
             </div>
             <div className="categories pt-[16px]">
-              <ul className="category-list flex gap-[12px] mb-[8px]">
+              <ul className="category-list flex flex-wrap gap-[12px] mb-[8px]">
                 <li className="font-semibold text-[14px] text-[#FFB836] leading-[160%] px-[16px] py-[4px] bg-[rgb(235_133_51/0.1)] opacity-100 rounded-[80px]">
                   {job.category}
                 </li>
