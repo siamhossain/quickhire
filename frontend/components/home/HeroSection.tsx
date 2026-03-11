@@ -2,7 +2,7 @@ import JobFilter from "../jobs/JobFilter";
 
 export default function Hero() {
   return (
-    <section className="hero-section bg-[url('/images/hero-bg.jpg')] bg-cover bg-center bg-no-repeat h-[794px] text-center py-20 bg-white">
+    <section className="hero-section bg-[url('/images/hero-bg.jpg')] bg-cover bg-center bg-no-repeat h-[900px] md:h-[794px]  text-center py-20 bg-white">
       <div className="container-main">
         <div className="hero-text-content pt-[82px] w-full md:w-3/4 lg:w-1/2 text-left">
           <h1 className="heading-xl mb-[16px]">

@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -48,7 +49,7 @@ export default function Navbar() {
           </div>
         </div>
 
-        <div className="flex items-center">
+        <div className="flex hidden md:flex items-center">
           <Link
             href="/login"
             className="font-epilogue font-bold text-[14px] sm:text-[16px] leading[160%] text-primary px-3 sm:px-4 py-2 rounded-none w-[80px] sm:w-[92px] h-[44px] sm:h-[50px] flex items-center justify-center"
@@ -63,7 +64,32 @@ export default function Navbar() {
             Sign Up
           </Link>
         </div>
+
+        {/* Hamburger Button */}
+        <button
+          className="md:hidden flex flex-col gap-[3px] bg-white w-[36px] h-[36px] border-[#D6DDEB] items-center justify-center rounded-full"
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          <span className="w-[17px] h-[2px] bg-[#25324B]"></span>
+          <span className="w-[17px] h-[2px] bg-[#25324B]"></span>
+          <span className="w-[17px] h-[2px] bg-[#25324B]"></span>
+        </button>
       </div>
+
+      {/* Mobile Menu */}
+      {menuOpen && (
+        <div className="md:hidden bg-white shadow-md">
+          <div className="flex flex-col p-6 space-y-4">
+            <Link href="/jobs" onClick={() => setMenuOpen(false)}>
+              Find Jobs
+            </Link>
+
+            <Link href="/admin" onClick={() => setMenuOpen(false)}>
+              Admin Panel
+            </Link>
+          </div>
+        </div>
+      )}
     </nav>
   );
 }
