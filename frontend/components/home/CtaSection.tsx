@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function CtaSection() {
   return (
     <section className="cta-section container-main">
-      <div className=" bg-[url('/images/cta-section.png')] bg-cover bg-center bg-no-repeat h-[414px] bg-white">
+      <div className="bg-[url('/images/cta-section.png')] bg-cover bg-center bg-no-repeat h-[414px] bg-white">
         <div className="cta-text-content px-[70px] py-[90px] w-full md:w-3/4 lg:w-1/2 text-left ">
           <h2 className="heading-lg text-white mb-[24px]">
             Start posting

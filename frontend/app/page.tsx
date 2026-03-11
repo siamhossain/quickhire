@@ -1,9 +1,10 @@
 import Brands from "@/components/home/BrandSection";
 import CategorySection from "@/components/home/Categories/CategorySection";
 import CtaSection from "@/components/home/CtaSection";
+import FeaturedSection from "@/components/home/Featured/FeaturedSection";
 import Hero from "@/components/home/HeroSection";
+import LatestSection from "@/components/home/Latest/LatestSection";
 import Image from "next/image";
-import FeaturedJobCard from "@/components/home/Featured/FeaturedJobCards";
 
 export default function Home() {
   return (
@@ -12,7 +13,8 @@ export default function Home() {
       <Brands />
       <CategorySection />
       <CtaSection />
-      <FeaturedJobCard />
+      <FeaturedSection />
+      <LatestSection />
     </div>
   );
 }

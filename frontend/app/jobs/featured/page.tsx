@@ -1,4 +1,4 @@
-import FeaturedJobCard from "@/components/home/Featured/FeaturedJobCards";
+import FeaturedJobCards from "@/components/home/Featured/FeaturedJobCards";
 
 export default async function FeaturedJobsPage() {
   return (
@@ -6,7 +6,7 @@ export default async function FeaturedJobsPage() {
       <div className="container-main">
         <h1 className="text-3xl font-bold mb-6">Featured Jobs</h1>
 
-        <FeaturedJobCard />
+        <FeaturedJobCards />
       </div>
     </div>
   );
