@@ -24,7 +24,10 @@ export default async function JobsPage({ searchParams }: Props) {
   return (
     <div className="job-list">
       <div className="container-main mt-[70px] py-[70px]">
-        <h1 className="text-3xl font-bold mb-8">Available Jobs</h1>
+        <h1 className="text-3xl md:text-4xl font-bold text-center mb-12">
+          Available Jobs
+          <span className="block w-20 h-1 bg-primary mx-auto mt-4"></span>
+        </h1>
         {/* <JobFilter /> */}
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">

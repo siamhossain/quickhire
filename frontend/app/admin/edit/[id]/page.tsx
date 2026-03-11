@@ -54,7 +54,10 @@ export default function EditJobPage() {
 
   return (
     <div className="max-w-3xl mx-auto py-10 pt-[110px]">
-      <h1 className="text-3xl font-bold mb-6">Edit Job</h1>
+      <h1 className="text-3xl md:text-4xl font-bold text-center mb-12">
+        Edit Job
+        <span className="block w-20 h-1 bg-primary mx-auto mt-4"></span>
+      </h1>
 
       <form onSubmit={handleSubmit} className="space-y-4">
         <input
@@ -108,7 +111,7 @@ export default function EditJobPage() {
           Featured Job
         </label>
 
-        <button className="bg-black text-white px-6 py-2 rounded cursor-pointer">
+        <button className="bg-primary text-white px-6 py-2 rounded cursor-pointer">
           Update Job
         </button>
       </form>

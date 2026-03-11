@@ -14,10 +14,10 @@ export default function ApplyForm({ jobId }: { jobId: string }) {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-        await applyToJob({ ...form, job_id: jobId });
-        alert("Application submitted");
+      await applyToJob({ ...form, job_id: jobId });
+      alert("Application submitted");
     } catch (error) {
-        alert("Something went wrong");
+      alert("Something went wrong");
     }
   };
 
@@ -27,38 +27,29 @@ export default function ApplyForm({ jobId }: { jobId: string }) {
         type="text"
         placeholder="Name"
         className="w-full border p-2"
-        onChange={(e) =>
-          setForm({ ...form, name: e.target.value })
-        }
+        onChange={(e) => setForm({ ...form, name: e.target.value })}
       />
       <input
         type="email"
         placeholder="Email"
         className="w-full border p-2"
-        onChange={(e) =>
-          setForm({ ...form, email: e.target.value })
-        }
+        onChange={(e) => setForm({ ...form, email: e.target.value })}
       />
       <input
         type="text"
         placeholder="Resume Link"
         className="w-full border p-2"
-        onChange={(e) =>
-          setForm({ ...form, resume_link: e.target.value })
-        }
+        onChange={(e) => setForm({ ...form, resume_link: e.target.value })}
       />
       <textarea
         placeholder="Cover Note"
         className="w-full border p-2"
-        onChange={(e) =>
-          setForm({ ...form, cover_note: e.target.value })
-        }
+        onChange={(e) => setForm({ ...form, cover_note: e.target.value })}
       />
 
-      <button  className="bg-black text-white px-6 py-2 rounded cursor-pointer">
+      <button className="bg-primary text-white px-6 py-2 rounded cursor-pointer">
         Apply Now
       </button>
-
     </form>
   );
 }

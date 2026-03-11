@@ -36,12 +36,15 @@ export default function AdminPage() {
 
   return (
     <div className="max-w-5xl mx-auto py-10 pt-[110px]">
-      <h1 className="text-3xl font-bold mb-8">Admin Panel</h1>
+      <h1 className="text-3xl md:text-4xl font-bold text-center mb-12">
+        Admin Panel
+        <span className="block w-20 h-1 bg-primary mx-auto mt-4"></span>
+      </h1>
 
       {/* Create Job */}
       <AdminForm refreshJobs={loadJobs} />
 
-      {/* Job List & Delete */}
+      {/* Job List, edit & Delete */}
       <AdminJobList jobs={jobs} setJobs={setJobs} />
     </div>
   );
