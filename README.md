@@ -35,6 +35,7 @@ Features
 --------
 - Browse available jobs
 - View detailed job descriptions
+- Filter with category, locations and search jobs
 - Apply for jobs
 - Admin can create jobs
 - Edit existing jobs
