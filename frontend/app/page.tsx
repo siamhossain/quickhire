@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import Brands from "@/components/home/BrandSection";
 import CategorySection from "@/components/home/Categories/CategorySection";
 import CtaSection from "@/components/home/CtaSection";
